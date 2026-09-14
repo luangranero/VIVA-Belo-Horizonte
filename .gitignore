@@ -1,0 +1,21 @@
+# ---------------------------------------------------------
+# Banco de imagens original (não vai para o site)
+# As versões otimizadas para a web ficam em assets/img/
+# ---------------------------------------------------------
+*.zip
+1. BAILE*/
+3. PRÉ-EVENTOS*/
+Produção VIVA*/
+
+# ---------------------------------------------------------
+# Material interno (personas, pesquisa, mapa mental)
+# ---------------------------------------------------------
+*.pdf
+WhatsApp Image*.jpeg
+
+# ---------------------------------------------------------
+# Sistema
+# ---------------------------------------------------------
+Thumbs.db
+desktop.ini
+.DS_Store
