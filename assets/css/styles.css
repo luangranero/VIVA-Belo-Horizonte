@@ -165,17 +165,22 @@ h3 {
 }
 
 .eyebrow {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+  display: block;
   margin-bottom: 18px;
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  line-height: 1.5;
   color: var(--orange-deep);
 }
-.eyebrow .icon { width: 14px; height: 14px; fill: var(--orange); stroke: none; }
+.eyebrow .icon {
+  width: 14px; height: 14px;
+  margin-right: 8px;
+  vertical-align: -2px;
+  fill: var(--orange);
+  stroke: none;
+}
 .eyebrow-light { color: var(--orange); }
 
 .source-note {
