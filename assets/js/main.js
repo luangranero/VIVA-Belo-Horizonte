@@ -586,6 +586,7 @@ function initForm() {
     data.regiao = SITE.nome;
     data.regiao_slug = SITE.slug || '';
     data.enviado_em = new Date().toISOString();
+    data.origem = 'formulario_analise';
     return data;
   }
 

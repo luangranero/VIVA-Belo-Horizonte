@@ -43,6 +43,8 @@ Os dois caminhos mandam JSON para o mesmo `webhookUrl`:
 
 Os dois enviam também a região e as UTMs do anúncio.
 
+Para gravar os leads numa planilha do Google, siga [integracoes/google-sheets/COMO-CONECTAR.md](integracoes/google-sheets/COMO-CONECTAR.md). O script pronto está na mesma pasta.
+
 ## Duas versões de conteúdo
 
 A página alterna entre **Medicina** e **outros cursos**, trocando textos, foto do topo e momentos da jornada. Para cair direto na versão de Medicina, use `?curso=medicina` no fim do endereço.
