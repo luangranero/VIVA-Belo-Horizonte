@@ -55,5 +55,4 @@ As fotos originais, os arquivos `.zip` do banco de imagens e os PDFs de persona 
 
 - Preencher `whatsapp`, `email` e `webhookUrl` em `regiao.js`.
 - Revisar os trechos marcados com `<!-- VALIDAR -->` no `index.html`: compromissos, respostas das dúvidas, cidades atendidas e eventos que a unidade organiza.
-- Trocar o logo em texto pelo SVG oficial da marca.
 - Os cartões ilustrativos do topo (fundo da turma e consultora) são exemplos.

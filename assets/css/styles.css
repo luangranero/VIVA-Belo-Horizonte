@@ -280,26 +280,16 @@ h3 {
 
 .brand {
   display: inline-flex;
-  flex-direction: column;
-  align-items: center;
-  line-height: 1;
+  flex-shrink: 0;
+  line-height: 0;
   text-decoration: none;
-  color: var(--orange);
 }
-.brand-mark {
-  font-size: 1.75rem;
-  font-weight: 300;
-  letter-spacing: 0.06em;
+.brand img {
+  display: block;
+  width: auto;
+  height: 40px;
 }
-.brand-sub {
-  margin-top: 1px;
-  font-size: 0.72rem;
-  font-weight: 400;
-  letter-spacing: 0.22em;
-  color: var(--ink-2);
-}
-.brand-light { color: var(--orange); }
-.brand-light .brand-sub { color: rgba(250, 247, 243, 0.7); }
+.brand-light img { height: 46px; }
 
 .unit-tag {
   display: inline-flex;
