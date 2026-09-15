@@ -25,18 +25,24 @@ window.REGIAO = {
   // Para onde vão os leads (POST com JSON): Google Apps Script, Make, Zapier, RD Station...
   webhookUrl: '',
 
-  // VALIDAR: cidades atendidas pela unidade (aparecem no site e no formulário)
+  // Cidades atendidas pela unidade (aparecem no site e no formulário)
   cidades: [
     'Belo Horizonte',
-    'Contagem',
-    'Betim',
     'Nova Lima',
-    'Lagoa Santa',
-    'Santa Luzia',
     'Sabará',
     'Vespasiano',
+    'Brumadinho',
+    'Caeté',
+    'Esmeraldas',
+    'Florestal',
     'Ibirité',
-    'Sete Lagoas',
+    'Itabirito',
+    'Lagoa Santa',
+    'Mateus Leme',
+    'Matozinhos',
+    'Pedro Leopoldo',
+    'Ribeirão das Neves',
+    'Santa Luzia',
   ],
 
   // Sugestões no campo "Instituição" do formulário (não aparecem como clientes)

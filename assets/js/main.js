@@ -28,6 +28,8 @@ const storage = {
   set(key, value) { try { localStorage.setItem(key, value); } catch { /* sem storage */ } },
 };
 
+const OUTRA_INSTITUICAO = 'Outra';
+
 const onlyDigits = (v) => String(v || '').replace(/\D/g, '');
 
 function formatPhoneBR(digits) {
@@ -73,6 +75,16 @@ function bindSiteConfig() {
   };
   fillDatalist($('[data-regiao-cidades-lista]'), SITE.cidades);
   fillDatalist($('[data-regiao-instituicoes]'), SITE.instituicoes);
+
+  const instSelect = $('[data-regiao-instituicoes-select]');
+  if (instSelect) {
+    [...SITE.instituicoes, OUTRA_INSTITUICAO].forEach((item) => {
+      const opt = document.createElement('option');
+      opt.value = item;
+      opt.textContent = item === OUTRA_INSTITUICAO ? 'Outra instituição (escrever)' : item;
+      instSelect.append(opt);
+    });
+  }
   const cityInput = $('#f-cidade');
   if (cityInput && SITE.cidadePrincipal) cityInput.placeholder = `Ex.: ${SITE.cidadePrincipal}`;
 
@@ -413,6 +425,16 @@ function initForm() {
   });
   if (root.dataset.course === 'med' && !selCurso.value) selCurso.value = 'Medicina';
 
+  // Instituição: "Outra" abre campo para digitar
+  const selInst = $('#f-instituicao');
+  const fieldOutra = $('#field-instituicao-outra');
+  selInst.addEventListener('change', () => {
+    const outra = selInst.value === OUTRA_INSTITUICAO;
+    fieldOutra.hidden = !outra;
+    if (outra) $('#f-instituicao-outra').focus();
+    else showError('instituicao_outra', '');
+  });
+
   // Máscara de telefone
   const phone = $('#f-whatsapp');
   phone.addEventListener('input', () => {
@@ -443,7 +465,12 @@ function initForm() {
     email: (v) => (/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()) ? '' : 'Digite um e-mail válido.'),
     papel: (v) => (v ? '' : 'Escolha uma opção.'),
     curso: (v) => (v ? '' : 'Selecione o curso.'),
-    instituicao: (v) => (v.trim().length >= 2 ? '' : 'Informe a instituição.'),
+    instituicao_lista: (v) => (v ? '' : 'Selecione a instituição.'),
+    instituicao_outra: (v) => (
+      form.elements.instituicao_lista.value === OUTRA_INSTITUICAO && v.trim().length < 2
+        ? 'Digite o nome da instituição.'
+        : ''
+    ),
     cidade: (v) => (v.trim().length >= 2 ? '' : 'Informe a cidade.'),
     formatura: (v) => (v ? '' : 'Selecione a previsão.'),
     formandos: (v) => {
@@ -548,6 +575,12 @@ function initForm() {
       else data[key] = value;
     });
     data.prioridades = data.prioridades || [];
+    data.instituicao = data.instituicao_lista === OUTRA_INSTITUICAO
+      ? (data.instituicao_outra || '').trim()
+      : data.instituicao_lista;
+    data.instituicao_digitada = data.instituicao_lista === OUTRA_INSTITUICAO;
+    delete data.instituicao_lista;
+    delete data.instituicao_outra;
     data.whatsapp_digitos = `55${onlyDigits(data.whatsapp)}`;
     data.unidade = SITE.unidade;
     data.regiao = SITE.nome;
